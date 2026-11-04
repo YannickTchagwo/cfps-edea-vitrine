@@ -1,3 +1,4 @@
+# Vérifications séparées de la publication.
 name: Vérifier le prototype (sans déploiement)
 on:
   pull_request:
