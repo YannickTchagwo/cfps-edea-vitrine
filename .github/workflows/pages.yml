@@ -1,0 +1,66 @@
+name: Publier le prototype sur GitHub Pages
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    env:
+      ASTRO_TELEMETRY_DISABLED: '1'
+      PUBLIC_CONTENT_MODE: demo
+      PLAYWRIGHT_BROWSERS_PATH: .cache/playwright
+      ALL_BROWSERS: '1'
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Lire la configuration Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Configurer la base de construction
+        shell: bash
+        env:
+          PAGES_BASE: ${{ steps.pages.outputs.base_path }}
+          PAGES_ORIGIN: ${{ steps.pages.outputs.origin }}
+        run: |
+          echo "SITE_BASE=${PAGES_BASE%/}/" >> "$GITHUB_ENV"
+          echo "SITE_URL=$PAGES_ORIGIN" >> "$GITHUB_ENV"
+      - run: npm ci
+      - run: npm run check
+      - run: npm run format:check
+      - run: npm test
+      - run: npm run build
+      - run: npm run test:static
+      - run: npx playwright install --with-deps firefox webkit
+      - run: npm run test:browser
+      - name: Préparer l’artefact Pages
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publier la démonstration
+        id: deployment
+        uses: actions/deploy-pages@v4

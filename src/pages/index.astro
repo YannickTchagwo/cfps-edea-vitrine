@@ -1,0 +1,189 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SearchForm from '../components/SearchForm.astro';
+import FormationCard from '../components/FormationCard.astro';
+import TradeVisual from '../components/TradeVisual.astro';
+import { formations, domains } from '../data/formations';
+import { url } from '../data/site';
+---
+
+<Layout title="Un métier à apprendre, un avenir à construire">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          <span></span> CFPS D’ÉDÉA · FORMATION PROFESSIONNELLE
+        </p>
+        <h1>
+          Votre avenir
+          <br />
+          prend forme<span class="yellow-text"> ici.</span>
+        </h1>
+        <p class="hero-intro">
+          Découvrez des métiers concrets et imaginez votre parcours
+          professionnel à Édéa.
+        </p>
+        <a class="text-link light" href={url('le-centre/')}>
+          Découvrir le centre <span aria-hidden="true">↗</span>
+        </a>
+        <div class="hero-note">
+          <span aria-hidden="true">01 /</span> Apprendre. Pratiquer. Construire.
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="art-label">
+          LE SAVOIR-FAIRE
+          <br />
+          <strong>ouvre des horizons.</strong>
+        </div>
+        <TradeVisual large />
+        <div class="art-stamp" aria-hidden="true">
+          DU GESTE
+          <br />
+          AU MÉTIER <span>↗</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="search-section container" aria-labelledby="search-title">
+    <div class="search-heading">
+      <h2 id="search-title">Le premier pas vers votre métier.</h2>
+      <span>Explorez le catalogue</span>
+    </div>
+    <SearchForm />
+    <p class="search-hint">
+      Catalogue de démonstration · Les formations et leurs conditions restent à
+      valider.
+    </p>
+  </section>
+  <section class="section container" aria-labelledby="domains-title">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">À CHACUN SON PARCOURS</p>
+        <h2 id="domains-title">Quel domaine vous ressemble ?</h2>
+      </div>
+      <span class="section-note">Domaines présentés à titre d’exemple</span>
+    </div>
+    <div class="domain-grid">
+      {domains.map((domain, index) => (
+        <a
+          class="domain-card"
+          href={url(`formations/?domaine=${encodeURIComponent(domain)}`)}
+        >
+          <span class="domain-number">0{index + 1}</span>
+          <span>
+            <strong>{domain}</strong>
+            <small>
+              {
+                [
+                  'Comprendre, réparer, fabriquer',
+                  'Installer, aménager, construire',
+                  'Organiser, préparer, coordonner',
+                ][index]
+              }
+            </small>
+          </span>
+          <span class="domain-arrow" aria-hidden="true">
+            ↗
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+  <section class="section soft" aria-labelledby="featured-title">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">DES MÉTIERS À EXPLORER</p>
+          <h2 id="featured-title">Trouvez votre voie.</h2>
+        </div>
+        <a class="text-link" href={url('formations/')}>
+          Toutes les formations <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <div class="formation-grid">
+        {formations.slice(0, 3).map((formation) => (
+          <FormationCard formation={formation} />
+        ))}
+      </div>
+      {!formations.length && (
+        <p>Aucune formation officielle publiée pour le moment.</p>
+      )}
+    </div>
+  </section>
+  <section class="section container audience-grid">
+    <div class="audience-card yellow">
+      <p class="eyebrow">APPRENANTS & PARENTS</p>
+      <h2>
+        Un projet de formation ?<br />
+        Avançons étape par étape.
+      </h2>
+      <p>
+        Repérez un métier, découvrez sa fiche et préparez les questions à poser
+        au centre.
+      </p>
+      <a class="text-link" href={url('admissions/')}>
+        Comprendre les démarches <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+    <div class="audience-card navy">
+      <p class="eyebrow">ENTREPRISES</p>
+      <h2>
+        Construisons les liens
+        <br />
+        avec le monde professionnel.
+      </h2>
+      <p>
+        Découvrez les pistes de collaboration à discuter avec le CFPS d’Édéa.
+      </p>
+      <a class="text-link light" href={url('entreprises/')}>
+        Explorer les partenariats <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+  <section class="section container centre-strip">
+    <div>
+      <p class="eyebrow">LE CFPS D’ÉDÉA</p>
+      <h2>
+        Un centre à découvrir.
+        <br />
+        Des parcours à imaginer.
+      </h2>
+    </div>
+    <div>
+      <p>
+        Le Centre de Formation Professionnelle Sectoriel d’Édéa prépare sa
+        vitrine d’information. L’histoire du centre, son équipe et ses
+        infrastructures seront présentées après validation.
+      </p>
+      <a class="text-link" href={url('le-centre/')}>
+        Faire connaissance avec le centre <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+  <section class="section soft">
+    <div class="container news-strip">
+      <div>
+        <p class="eyebrow">LA VIE DU CENTRE</p>
+        <h2>À suivre au CFPS.</h2>
+      </div>
+      <div class="empty-inline">
+        <span class="pill">Actualités</span>
+        <p>Aucune actualité officielle publiée pour le moment.</p>
+        <a class="text-link" href={url('actualites/')}>
+          Consulter les actualités <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="contact-strip container">
+    <div>
+      <p class="eyebrow">BESOIN D’UN REPÈRE ?</p>
+      <h2>Parlons de votre projet.</h2>
+      <p>Les coordonnées officielles seront ajoutées après confirmation.</p>
+    </div>
+    <a class="button" href={url('contact/')}>
+      Informations de contact <span aria-hidden="true">↗</span>
+    </a>
+  </section>
+</Layout>

@@ -1,0 +1,41 @@
+---
+import { domains } from '../data/formations';
+import { url } from '../data/site';
+interface Props {
+  catalogue?: boolean;
+}
+const { catalogue = false } = Astro.props;
+---
+
+<form
+  class="search-form"
+  id={catalogue ? 'catalogue-search' : undefined}
+  action={url('formations/')}
+  method="get"
+  role="search"
+  aria-label="Rechercher une formation"
+>
+  <div class="search-field">
+    <label for="search-q">Quel métier vous intéresse ?</label>
+    <input
+      id="search-q"
+      name="q"
+      type="search"
+      placeholder="Ex. : électricité, maintenance…"
+      autocomplete="off"
+    />
+  </div>
+  <div class="search-field domain-field">
+    <label for="search-domain">Votre domaine</label>
+    <select id="search-domain" name="domaine">
+      <option value="">Tous les domaines</option>
+      {domains.map((domain) => (
+        <option value={domain}>{domain}</option>
+      ))}
+    </select>
+  </div>
+  <button class="button" type="submit">
+    <span aria-hidden="true">⌕</span>{' '}
+    {catalogue ? 'Rechercher' : 'Trouver une formation'}
+  </button>
+</form>

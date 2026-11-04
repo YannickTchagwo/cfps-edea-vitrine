@@ -92,6 +92,6 @@ npm.cmd run build
 
 ## Publication séparée
 
-La CI `.github/workflows/verify.yml` vérifie et dépose des artefacts ; elle ne déploie rien. La procédure de publication future, de configuration du sous-domaine et de retour arrière figure dans [docs/publication.md](docs/publication.md). Aucun DNS modifié, aucun push ou déploiement déclenché.
+La CI `.github/workflows/verify.yml` vérifie et dépose des artefacts. Le workflow séparé `.github/workflows/pages.yml` publie manuellement la démonstration sur GitHub Pages, après réussite des contrôles. Le dépôt public est [YannickTchagwo/cfps-edea-vitrine](https://github.com/YannickTchagwo/cfps-edea-vitrine). La configuration de Pages et le retour arrière sont décrits dans [docs/publication.md](docs/publication.md). Aucun DNS de domaine personnalisé n’est modifié.
 
 À obtenir avant diffusion : cahier des charges métier complet, formations officielles, logo et charte, photos autorisées, contacts et campus, calendrier, conditions d’admission, responsable éditorial, identité juridique et validation des mentions. Voir le [registre des contenus et licences](docs/contenus-et-licences.md) et la [conception avec captures](docs/design.md).

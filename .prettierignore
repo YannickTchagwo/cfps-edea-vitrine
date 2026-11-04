@@ -1,0 +1,9 @@
+node_modules
+dist
+.astro
+test-results
+playwright-report
+docs/captures
+docs/performance
+package-lock.json
+CFPS_Edea_Brief_Agent_Prototype_Vitrine.md

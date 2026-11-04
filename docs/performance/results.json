@@ -1,0 +1,83 @@
+[
+  {
+    "page": "accueil",
+    "run": 1,
+    "performance": 100,
+    "lcp": 1068.7299,
+    "cls": 0,
+    "bytes": 31993,
+    "jsBytes": 0
+  },
+  {
+    "page": "accueil",
+    "run": 2,
+    "performance": 100,
+    "lcp": 1312.48775,
+    "cls": 0,
+    "bytes": 31993,
+    "jsBytes": 0
+  },
+  {
+    "page": "accueil",
+    "run": 3,
+    "performance": 100,
+    "lcp": 1146.7687,
+    "cls": 0.0007830210489698062,
+    "bytes": 31993,
+    "jsBytes": 0
+  },
+  {
+    "page": "catalogue",
+    "run": 1,
+    "performance": 100,
+    "lcp": 1218.5030000000002,
+    "cls": 0.0007830210489698062,
+    "bytes": 34016,
+    "jsBytes": 0
+  },
+  {
+    "page": "catalogue",
+    "run": 2,
+    "performance": 100,
+    "lcp": 1056.3029,
+    "cls": 0.0007830210489698062,
+    "bytes": 34016,
+    "jsBytes": 0
+  },
+  {
+    "page": "catalogue",
+    "run": 3,
+    "performance": 100,
+    "lcp": 1080.0614,
+    "cls": 0.0007830210489698062,
+    "bytes": 34016,
+    "jsBytes": 0
+  },
+  {
+    "page": "fiche",
+    "run": 1,
+    "performance": 100,
+    "lcp": 909.242,
+    "cls": 0,
+    "bytes": 23585,
+    "jsBytes": 0
+  },
+  {
+    "page": "fiche",
+    "run": 2,
+    "performance": 100,
+    "lcp": 905.5900999999999,
+    "cls": 0.0007830210489698062,
+    "bytes": 23585,
+    "jsBytes": 0
+  },
+  {
+    "page": "fiche",
+    "run": 3,
+    "performance": 100,
+    "lcp": 907.463,
+    "cls": 0,
+    "bytes": 23585,
+    "jsBytes": 0
+  }
+]

@@ -1,0 +1,37 @@
+---
+import type { Formation } from '../data/demo-formations';
+import { url } from '../data/site';
+import TradeVisual from './TradeVisual.astro';
+interface Props {
+  formation: Formation;
+}
+const { formation: f } = Astro.props;
+---
+
+<article
+  class="formation-card"
+  data-formation
+  data-domain={f.domain}
+  data-search={`${f.title} ${f.domain} ${f.summary}`}
+>
+  <TradeVisual kind={f.illustration} />
+  <div class="card-body">
+    <div class="card-meta">
+      <span>{f.domain}</span>
+      <span class="demo-tag">Démonstration</span>
+    </div>
+    <h3>
+      <a href={url(`formations/${f.slug}/`)}>{f.title}</a>
+    </h3>
+    <p>{f.summary}</p>
+    <div class="card-bottom">
+      <span>Durée à confirmer</span>
+      <a
+        href={url(`formations/${f.slug}/`)}
+        aria-label={`Voir la fiche : ${f.title}`}
+      >
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+</article>

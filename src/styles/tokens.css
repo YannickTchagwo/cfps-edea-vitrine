@@ -1,0 +1,12 @@
+:root {
+  --ink: #142b3d;
+  --paper: #fffefa;
+  --soft: #f2f3ee;
+  --yellow: #f3c94f;
+  --muted: #52616a;
+  --line: #d6dcd9;
+  --focus: #b56500;
+  --radius: 3px;
+  --shadow: 0 10px 35px #142b3d12;
+  --space: 8px;
+}
