@@ -2,7 +2,15 @@
 
 Aucune mise en ligne n’a encore été vérifiée. L’utilisateur a autorisé la publication de la démonstration sur GitHub Pages le 4 novembre 2026. Le dépôt public est `YannickTchagwo/cfps-edea-vitrine`.
 
-Le workflow `.github/workflows/pages.yml` prépare cette publication. Il se déclenche manuellement dans Actions après activation de Pages avec la source **GitHub Actions** dans les paramètres du dépôt. Il conserve les contenus de démonstration, le bandeau et `noindex`, exécute les contrôles et les tests navigateur avant le déploiement, puis utilise l’environnement `github-pages`. Configurer les règles de protection souhaitées sur cet environnement dans GitHub.
+## Configuration retenue pour la démonstration
+
+Le site est configuré avec la source **Deploy from a branch**, branche `gh-pages`, dossier `/`. Cette branche contient uniquement `dist/` et `.nojekyll` ; `main` contient le code et la documentation. HTTPS est activé. Les 15 pages conservent le bandeau, les exemples explicitement signalés et `noindex`.
+
+Les workflows ont été transmis mais GitHub Actions ne les a pas enregistrés dans sa liste pendant cette opération (déclenchement manuel : HTTP 404 malgré les fichiers présents et Actions activé). La publication initiale utilise donc le build statique vérifié localement ; aucun succès de CI GitHub n’est annoncé.
+
+Pour une mise à jour, reconstruire avec `SITE_BASE=/cfps-edea-vitrine/`, exécuter les contrôles du README puis mettre à jour `gh-pages` avec le contenu de `dist/` en conservant `.nojekyll`. Ne pas fusionner `main` dans `gh-pages`. Conserver l’artefact précédent avant de le remplacer.
+
+Le workflow `.github/workflows/pages.yml` reste disponible pour une future automatisation. Il faut alors sélectionner la source **GitHub Actions** dans les paramètres Pages et vérifier que GitHub l’enregistre avant de le déclencher. Il conserve les contenus de démonstration, le bandeau et `noindex`, exécute les contrôles et les tests navigateur avant le déploiement, puis utilise l’environnement `github-pages`.
 
 ## Conditions éditoriales
 
