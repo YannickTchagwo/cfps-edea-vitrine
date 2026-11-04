@@ -1,4 +1,5 @@
 @import url('./tokens.css');
+@import url('./formations.css');
 * {
   box-sizing: border-box;
 }

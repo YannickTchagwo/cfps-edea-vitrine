@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-04",
+  "base": "/",
+  "initial": {
+    "startTime": "2026-11-04T21:11:05.384Z",
+    "duration": 225768.452,
+    "expected": 48,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  },
+  "correctedTableChromiumWebkit": {
+    "startTime": "2026-11-04T21:15:44.022Z",
+    "duration": 17648.078,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  },
+  "correctedTableFirefox": {
+    "startTime": "2026-11-04T21:16:46.586Z",
+    "duration": 11811.864000000001,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "result": "51 scenarios validated across Chromium, Firefox and WebKit; table assertion corrected; Firefox startup crash resolved outside sandbox"
+}

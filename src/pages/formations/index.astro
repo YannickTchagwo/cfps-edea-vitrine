@@ -1,13 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import FormationCard from '../../components/FormationCard.astro';
+import FormationTable from '../../components/FormationTable.astro';
 import SearchForm from '../../components/SearchForm.astro';
 import { formations } from '../../data/formations';
 import { url } from '../../data/site';
 ---
 
 <Layout
-  title="Les métiers du CFPS d’Édéa"
+  title="Filières et métiers du CFPS d’Édéa"
   description="Découvrez les 11 métiers répertoriés pour Édéa : maintenance industrielle, transport et logistique. Conditions de formation à confirmer."
 >
   <section class="page-heading">
@@ -19,11 +19,14 @@ import { url } from '../../data/site';
       </nav>
       <p class="eyebrow">CHOISIR SON PARCOURS</p>
       <h1>
-        Des métiers pour
+        Trouvez votre
         <br />
-        construire votre avenir.
+        filière.
       </h1>
-      <p>11 métiers, 3 pôles : explorez les parcours répertoriés pour Édéa.</p>
+      <p>
+        11 métiers, 3 pôles. Comparez les parcours répertoriés pour Édéa et
+        ouvrez la fiche qui vous intéresse.
+      </p>
     </div>
   </section>
   <div class="container catalogue-content">
@@ -48,11 +51,10 @@ import { url } from '../../data/site';
         Réinitialiser les filtres <span aria-hidden="true">↺</span>
       </button>
     </div>
-    <div class="formation-grid">
-      {formations.map((formation) => (
-        <FormationCard formation={formation} />
-      ))}
-    </div>
+    <p class="catalogue-table-note">
+      Liste alphabétique · Cliquez sur un intitulé pour découvrir sa fiche.
+    </p>
+    <FormationTable formations={formations} />
     <div id="empty-results" class="empty-state" hidden>
       <h2>Aucun métier ne correspond.</h2>
       <p>Essayez un terme plus court ou sélectionnez « Tous les pôles ».</p>
@@ -86,6 +88,7 @@ import { url } from '../../data/site';
     ];
     const count = document.querySelector<HTMLElement>('#results-count')!;
     const empty = document.querySelector<HTMLElement>('#empty-results')!;
+    const table = document.querySelector<HTMLElement>('#formation-table')!;
     const reset = document.querySelector<HTMLButtonElement>('#reset-search')!;
     reset.hidden = false;
     const apply = (updateUrl = true) => {
@@ -101,6 +104,7 @@ import { url } from '../../data/site';
       }
       count.textContent = `${visible} métier${visible !== 1 ? 's' : ''} répertorié${visible !== 1 ? 's' : ''}`;
       empty.hidden = visible !== 0 || cards.length === 0;
+      table.hidden = visible === 0;
       if (updateUrl) {
         const params = new URLSearchParams();
         if (query.value.trim()) params.set('q', query.value.trim());

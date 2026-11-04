@@ -6,6 +6,8 @@ export type Formation = {
   summary: string;
   objectives: string[] | null;
   duration: string | null;
+  qualification: string | null;
+  session: string | null;
   prerequisites: string | null;
   careers: string[] | null;
   modalities: string | null;

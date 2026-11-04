@@ -53,6 +53,8 @@ test('aucun programme, durée, prérequis ou débouché non fourni n’est inven
     for (const field of [
       'objectives',
       'duration',
+      'qualification',
+      'session',
       'prerequisites',
       'careers',
       'modalities',

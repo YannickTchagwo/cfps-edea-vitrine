@@ -1,0 +1,67 @@
+---
+import type { Formation } from '../data/formation-types';
+import { url } from '../data/site';
+interface Props {
+  formations: Formation[];
+}
+const { formations } = Astro.props;
+const sortedFormations = [...formations].sort((a, b) =>
+  a.title.localeCompare(b.title, 'fr'),
+);
+---
+
+<div id="formation-table" class="programme-table-wrap">
+  <table class="programme-table">
+    <caption class="sr-only">
+      Filières et métiers répertoriés pour le CFPS d’Édéa, par ordre
+      alphabétique
+    </caption>
+    <thead>
+      <tr>
+        <th scope="col">Filière / métier</th>
+        <th scope="col">Pôle</th>
+        <th scope="col" class="programme-duration">
+          Durée
+        </th>
+        <th scope="col" class="programme-action">
+          <span class="sr-only">Ouvrir la fiche</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {sortedFormations.map((f) => (
+        <tr
+          data-formation
+          data-domain={f.domain}
+          data-search={`${f.title} ${f.domain} ${f.summary}`}
+        >
+          <th scope="row">
+            <a data-formation-link href={url(`formations/${f.slug}/`)}>
+              {f.title}
+              <span class="programme-mobile-arrow" aria-hidden="true">
+                ↗
+              </span>
+            </a>
+          </th>
+          <td class="programme-pole">
+            <span class:list={['pole-label', `pole-${f.illustration}`]}>
+              {f.domain}
+            </span>
+          </td>
+          <td class="programme-duration">
+            <span class="pending-value">{f.duration || 'À confirmer'}</span>
+          </td>
+          <td class="programme-action">
+            <a
+              class="programme-open"
+              href={url(`formations/${f.slug}/`)}
+              aria-label={`Voir la fiche : ${f.title}`}
+            >
+              <span aria-hidden="true">↗</span>
+            </a>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

@@ -6,6 +6,8 @@ Site français statique avec Astro 7.4.5 et TypeScript strict. Le catalogue repr
 
 Adaptation du catalogue à la liste transmise : [source, transcription des onze métiers et tests](docs/integration-metiers.md).
 
+Présentation du catalogue et des fiches : [modèle inspiré de la BHT et recette](docs/modele-bht.md).
+
 ## Ouvrir en local
 
 Prérequis : Node LTS 24.11.0 (`.nvmrc`, minimum compatible Astro 22.23.4) et npm 11.19.0. La recette de cet environnement utilise Node 26.7.0 ; une exécution sur la version LTS épinglée reste à reproduire.

@@ -103,8 +103,13 @@ test('onze fiches sourcées et intitulés longs sans débordement à 320px', asy
 }) => {
   await page.setViewportSize({ width: 320, height: 900 });
   await page.goto('formations/');
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBeTruthy();
   const links = await page
-    .locator('[data-formation] h3 a')
+    .locator('[data-formation] [data-formation-link]')
     .evaluateAll((nodes) =>
       nodes.map((node) => (node as HTMLAnchorElement).href),
     );
@@ -126,6 +131,76 @@ test('onze fiches sourcées et intitulés longs sans débordement à 320px', asy
         () => document.documentElement.scrollWidth <= innerWidth,
       ),
     ).toBeTruthy();
+  }
+});
+
+test('catalogue en tableau, classement alphabétique et filtres par pôle', async ({
+  page,
+}) => {
+  await page.goto('formations/');
+  await expect(page.getByRole('table')).toHaveCount(1);
+  const links = page.locator('[data-formation-link]');
+  await expect(links).toHaveCount(11);
+  await expect(links.first()).toHaveAccessibleName('Chef de quai et magasinier');
+  await expect(links.last()).toHaveAccessibleName('Technicien logistique');
+  for (const [pole, count] of [
+    ['Maintenance industrielle', 4],
+    ['Transport', 3],
+    ['Logistique', 4],
+  ] as const) {
+    await page.getByLabel('Votre pôle').selectOption(pole);
+    await expect(page.locator('[data-formation]:visible')).toHaveCount(count);
+  }
+  await page.getByRole('button', { name: 'Réinitialiser les filtres' }).click();
+  await page.setViewportSize({ width: 320, height: 900 });
+  await expect(page.locator('thead .programme-duration')).toBeHidden();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBeTruthy();
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await expect(page.locator('thead .programme-duration')).toBeVisible();
+});
+
+test('fiche structurée : repères, sommaire et admission sur mobile et bureau', async ({
+  page,
+}) => {
+  for (const width of [390, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('formations/mecatronicien-automobile/');
+    await expect(
+      page.getByRole('heading', { name: 'La filière en bref' }),
+    ).toBeVisible();
+    await expect(page.locator('.facts-table')).toContainText(
+      'Qualification préparée',
+    );
+    await expect(page.locator('.facts-table')).toContainText('À confirmer');
+    if (width === 390) {
+      await page.locator('.mobile-course-toc summary').click();
+      await page
+        .getByRole('navigation', { name: 'Rubriques de la fiche' })
+        .getByRole('link', { name: 'Programme et pratique', exact: true })
+        .click();
+    } else {
+      await page
+        .getByRole('navigation', { name: 'Dans cette fiche' })
+        .getByRole('link', { name: 'Programme et pratique', exact: false })
+        .click();
+    }
+    await expect(page).toHaveURL(/#programme$/);
+    await expect(
+      page.getByRole('heading', {
+        name: 'Programme et pratique professionnelle',
+      }),
+    ).toBeInViewport();
+    await page.getByRole('link', { name: 'Comprendre les démarches' }).click();
+    await expect(page).toHaveURL(/\/admissions\/$/);
+    await page.goto('formations/mecatronicien-automobile/');
+    await page.screenshot({
+      path: `docs/captures/fiche-${width}-bht.png`,
+      fullPage: true,
+    });
   }
 });
 

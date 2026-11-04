@@ -84,6 +84,8 @@ export const sourceFormations: Formation[] = listedTrades.map(
     summary: `Métier répertorié pour le CFPS d’Édéa dans le pôle ${domain.toLocaleLowerCase('fr')}.`,
     objectives: null,
     duration: null,
+    qualification: null,
+    session: null,
     prerequisites: null,
     careers: null,
     modalities: null,

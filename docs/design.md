@@ -1,5 +1,7 @@
 # Conception du prototype
 
+Présentation actuelle des filières : catalogue alphabétique en tableau et fiches structurées avec repères et sommaire, inspirés de la BHT. Voir [modele-bht.md](modele-bht.md). Les cartes de métiers de l’accueil sont conservées.
+
 Mise à jour du catalogue : les pôles sont Maintenance industrielle, Transport et Logistique, issus de la liste transmise. Onze fiches sourcées remplacent les six exemples. Voir [integration-metiers.md](integration-metiers.md). Les captures ci-dessous sont actualisées par les tests.
 
 ## Source et limite du relevé

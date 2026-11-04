@@ -1,7 +1,7 @@
 {
   "base": "/cfps-edea-vitrine/",
   "htmlPages": 20,
-  "links": 523,
+  "links": 534,
   "weights": [
     {
       "page": "index.html",
@@ -10,12 +10,12 @@
     },
     {
       "page": "formations/index.html",
-      "htmlBytes": 26944,
-      "inlineJsGzipBytes": 877
+      "htmlBytes": 17829,
+      "inlineJsGzipBytes": 892
     },
     {
       "page": "formations/mecatronicien-automobile/index.html",
-      "htmlBytes": 7693,
+      "htmlBytes": 10745,
       "inlineJsGzipBytes": 315
     }
   ]
