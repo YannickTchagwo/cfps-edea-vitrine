@@ -19,7 +19,6 @@ jobs:
       pages: read
     env:
       ASTRO_TELEMETRY_DISABLED: '1'
-      PUBLIC_CONTENT_MODE: demo
       PLAYWRIGHT_BROWSERS_PATH: .cache/playwright
       ALL_BROWSERS: '1'
     steps:

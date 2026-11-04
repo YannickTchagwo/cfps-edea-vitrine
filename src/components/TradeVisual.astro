@@ -58,20 +58,34 @@ const { kind = 'industry', large = false } = Astro.props;
           stroke-width="13"
         />
       </g>
-    ) : kind === 'electric' ? (
+    ) : kind === 'transport' ? (
       <g>
         <path
-          d="M90 310V160L210 80L330 160V310M60 310H545M130 310V210H195V310M235 210H290V260H235Z"
+          d="M55 325H550M85 280V120H350V280M350 175H445L505 235V280H450M350 280H200M85 280H130M375 195H435L475 235H375Z"
           fill="none"
           stroke="currentColor"
           stroke-width="9"
         />
-        <path
-          d="M428 75L355 218H418L382 330L505 170H438L480 75Z"
-          fill="var(--visual-accent)"
+        <circle
+          cx="165"
+          cy="282"
+          r="34"
+          fill="var(--visual-bg)"
           stroke="currentColor"
-          stroke-width="7"
-          stroke-linejoin="round"
+          stroke-width="9"
+        />
+        <circle
+          cx="420"
+          cy="282"
+          r="34"
+          fill="var(--visual-bg)"
+          stroke="currentColor"
+          stroke-width="9"
+        />
+        <path
+          d="M120 160H310M120 195H260"
+          stroke="currentColor"
+          stroke-width="9"
         />
       </g>
     ) : (
@@ -97,5 +111,5 @@ const { kind = 'industry', large = false } = Astro.props;
       </g>
     )}
   </svg>
-  <span class="visual-caption">Illustration de démonstration</span>
+  <span class="visual-caption">Illustration générique</span>
 </div>

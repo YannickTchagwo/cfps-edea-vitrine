@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import SearchForm from '../components/SearchForm.astro';
 import FormationCard from '../components/FormationCard.astro';
 import TradeVisual from '../components/TradeVisual.astro';
-import { formations, domains } from '../data/formations';
+import { formations, poles, featuredFormations } from '../data/formations';
 import { url } from '../data/site';
 ---
 
@@ -52,36 +52,28 @@ import { url } from '../data/site';
     </div>
     <SearchForm />
     <p class="search-hint">
-      Catalogue de démonstration · Les formations et leurs conditions restent à
-      valider.
+      11 métiers répertoriés pour Édéa dans la liste transmise · Conditions de
+      formation à confirmer.
     </p>
   </section>
   <section class="section container" aria-labelledby="domains-title">
     <div class="section-heading">
       <div>
         <p class="eyebrow">À CHACUN SON PARCOURS</p>
-        <h2 id="domains-title">Quel domaine vous ressemble ?</h2>
+        <h2 id="domains-title">Quel pôle vous ressemble&nbsp;?</h2>
       </div>
-      <span class="section-note">Domaines présentés à titre d’exemple</span>
+      <span class="section-note">Trois pôles identifiés pour Édéa</span>
     </div>
     <div class="domain-grid">
-      {domains.map((domain, index) => (
+      {poles.map((pole, index) => (
         <a
           class="domain-card"
-          href={url(`formations/?domaine=${encodeURIComponent(domain)}`)}
+          href={url(`formations/?domaine=${encodeURIComponent(pole.name)}`)}
         >
           <span class="domain-number">0{index + 1}</span>
           <span>
-            <strong>{domain}</strong>
-            <small>
-              {
-                [
-                  'Comprendre, réparer, fabriquer',
-                  'Installer, aménager, construire',
-                  'Organiser, préparer, coordonner',
-                ][index]
-              }
-            </small>
+            <strong>{pole.name}</strong>
+            <small>{pole.summary}</small>
           </span>
           <span class="domain-arrow" aria-hidden="true">
             ↗
@@ -98,17 +90,15 @@ import { url } from '../data/site';
           <h2 id="featured-title">Trouvez votre voie.</h2>
         </div>
         <a class="text-link" href={url('formations/')}>
-          Toutes les formations <span aria-hidden="true">↗</span>
+          Tous les métiers <span aria-hidden="true">↗</span>
         </a>
       </div>
       <div class="formation-grid">
-        {formations.slice(0, 3).map((formation) => (
+        {featuredFormations.map((formation) => (
           <FormationCard formation={formation} />
         ))}
       </div>
-      {!formations.length && (
-        <p>Aucune formation officielle publiée pour le moment.</p>
-      )}
+      {!formations.length && <p>Aucun métier publié pour le moment.</p>}
     </div>
   </section>
   <section class="section container audience-grid">
@@ -152,9 +142,10 @@ import { url } from '../data/site';
     </div>
     <div>
       <p>
-        Le Centre de Formation Professionnelle Sectoriel d’Édéa prépare sa
-        vitrine d’information. L’histoire du centre, son équipe et ses
-        infrastructures seront présentées après validation.
+        La liste des métiers transmise identifie pour le CFPS d’Édéa trois pôles
+        : maintenance industrielle, transport et logistique. Découvrez les onze
+        métiers répertoriés ; les modalités de formation restent à confirmer
+        auprès du centre.
       </p>
       <a class="text-link" href={url('le-centre/')}>
         Faire connaissance avec le centre <span aria-hidden="true">↗</span>

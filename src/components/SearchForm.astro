@@ -13,7 +13,7 @@ const { catalogue = false } = Astro.props;
   action={url('formations/')}
   method="get"
   role="search"
-  aria-label="Rechercher une formation"
+  aria-label="Rechercher un métier"
 >
   <div class="search-field">
     <label for="search-q">Quel métier vous intéresse ?</label>
@@ -21,14 +21,14 @@ const { catalogue = false } = Astro.props;
       id="search-q"
       name="q"
       type="search"
-      placeholder="Ex. : électricité, maintenance…"
+      placeholder="Ex. : mécatronicien, transport…"
       autocomplete="off"
     />
   </div>
   <div class="search-field domain-field">
-    <label for="search-domain">Votre domaine</label>
+    <label for="search-domain">Votre pôle</label>
     <select id="search-domain" name="domaine">
-      <option value="">Tous les domaines</option>
+      <option value="">Tous les pôles</option>
       {domains.map((domain) => (
         <option value={domain}>{domain}</option>
       ))}
@@ -36,6 +36,6 @@ const { catalogue = false } = Astro.props;
   </div>
   <button class="button" type="submit">
     <span aria-hidden="true">⌕</span>{' '}
-    {catalogue ? 'Rechercher' : 'Trouver une formation'}
+    {catalogue ? 'Rechercher' : 'Explorer les métiers'}
   </button>
 </form>

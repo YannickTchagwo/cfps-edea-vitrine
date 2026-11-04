@@ -9,6 +9,10 @@ export const pages = {
         'Le Centre de Formation Professionnelle Sectoriel d’Édéa est le sujet de cette vitrine. La maîtrise d’ouvrage indiquée dans le brief est le comité de gestion du GIP-CFPS d’Édéa.',
       ],
       [
+        'Trois pôles professionnels',
+        'La liste des métiers par Centres, page 1, répertorie onze métiers pour le CFPS d’Édéa : quatre en maintenance industrielle, trois en transport et quatre en logistique. Les programmes et les conditions de formation restent à confirmer auprès du centre.',
+      ],
+      [
         'Histoire et missions',
         'Information à confirmer. La présentation institutionnelle et l’histoire du centre attendent une validation éditoriale.',
       ],
@@ -29,7 +33,7 @@ export const pages = {
     sections: [
       [
         '01 · Explorer les métiers',
-        'Parcourez le catalogue de démonstration et notez les domaines qui vous intéressent. Les formations officielles restent à confirmer.',
+        'Parcourez les 11 métiers de la liste transmise pour Édéa, répartis entre maintenance industrielle, transport et logistique. Identifiez le métier qui vous intéresse, puis vérifiez les possibilités de formation auprès du centre.',
       ],
       [
         '02 · Préparer vos questions',
@@ -90,7 +94,7 @@ export const pages = {
       ],
       [
         'En attendant',
-        'Vous pouvez explorer les exemples de formations et préparer vos questions. Aucun message ou renseignement personnel n’est collecté ici.',
+        'Vous pouvez explorer les métiers répertoriés pour Édéa et préparer vos questions. Aucun message ou renseignement personnel n’est collecté ici.',
       ],
     ],
   },
@@ -101,7 +105,7 @@ export const pages = {
     sections: [
       [
         'Statut de cette vitrine',
-        'Prototype – informations à confirmer. Les formations marquées « Démonstration » sont des exemples fictifs et ne constituent pas une offre de formation officielle. L’identité visuelle est provisoire.',
+        'Prototype – informations à confirmer. Les intitulés des 11 métiers et leurs trois pôles sont repris de la liste des métiers par Centres fournie pour ce site, page 1, rubrique CFPS d’Édéa. Le document ne précise pas les programmes, durées ni conditions d’admission et ne confirme pas l’ouverture de sessions. L’identité visuelle est provisoire.',
       ],
       [
         'Édition',

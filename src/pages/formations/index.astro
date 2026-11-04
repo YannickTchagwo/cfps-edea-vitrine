@@ -7,30 +7,31 @@ import { url } from '../../data/site';
 ---
 
 <Layout
-  title="Catalogue des formations"
-  description="Explorez le catalogue de démonstration : recherche par métier et filtre par domaine. Les offres du CFPS restent à confirmer."
+  title="Les métiers du CFPS d’Édéa"
+  description="Découvrez les 11 métiers répertoriés pour Édéa : maintenance industrielle, transport et logistique. Conditions de formation à confirmer."
 >
   <section class="page-heading">
     <div class="container">
       <nav class="breadcrumb" aria-label="Fil d’Ariane">
         <a href={url('')}>Accueil</a>
         <span aria-hidden="true">/</span>
-        <span>Formations</span>
+        <span>Métiers et formations</span>
       </nav>
       <p class="eyebrow">CHOISIR SON PARCOURS</p>
       <h1>
-        Un métier commence
+        Des métiers pour
         <br />
-        par une formation.
+        construire votre avenir.
       </h1>
-      <p>Explorez les domaines et trouvez une piste pour votre projet.</p>
+      <p>11 métiers, 3 pôles : explorez les parcours répertoriés pour Édéa.</p>
     </div>
   </section>
   <div class="container catalogue-content">
     <div class="notice">
-      <strong>Catalogue de démonstration.</strong> Ces exemples ne constituent
-      pas une offre officielle du CFPS d’Édéa. Durées, prérequis et conditions
-      restent à confirmer.
+      <strong>Des métiers issus du document transmis.</strong> La liste des
+      métiers par Centres, page 1, rattache ces 11 métiers au CFPS d’Édéa. Elle
+      ne précise pas les programmes, durées, prérequis ni sessions ouvertes :
+      ces informations restent à confirmer auprès du centre.
     </div>
     <SearchForm catalogue />
     <noscript>
@@ -41,7 +42,7 @@ import { url } from '../../data/site';
     </noscript>
     <div class="results-bar">
       <p id="results-count" role="status" aria-live="polite" aria-atomic="true">
-        {formations.length} formations de démonstration
+        {formations.length} métiers répertoriés
       </p>
       <button id="reset-search" class="reset-button" type="button" hidden>
         Réinitialiser les filtres <span aria-hidden="true">↺</span>
@@ -53,16 +54,16 @@ import { url } from '../../data/site';
       ))}
     </div>
     <div id="empty-results" class="empty-state" hidden>
-      <h2>Aucune formation ne correspond.</h2>
-      <p>Essayez un terme plus court ou sélectionnez « Tous les domaines ».</p>
+      <h2>Aucun métier ne correspond.</h2>
+      <p>Essayez un terme plus court ou sélectionnez « Tous les pôles ».</p>
       <button class="button" id="empty-reset" type="button">
-        Voir toutes les formations
+        Voir tous les métiers
       </button>
     </div>
     {!formations.length && (
       <div class="empty-state">
-        <h2>Le catalogue officiel se prépare.</h2>
-        <p>Aucune formation validée n’est publiée pour le moment.</p>
+        <h2>Le catalogue se prépare.</h2>
+        <p>Aucun métier n’est publié pour le moment.</p>
       </div>
     )}
   </div>
@@ -98,7 +99,7 @@ import { url } from '../../data/site';
         );
         if (!card.hidden) visible++;
       }
-      count.textContent = `${visible} formation${visible !== 1 ? 's' : ''} de démonstration`;
+      count.textContent = `${visible} métier${visible !== 1 ? 's' : ''} répertorié${visible !== 1 ? 's' : ''}`;
       empty.hidden = visible !== 0 || cards.length === 0;
       if (updateUrl) {
         const params = new URLSearchParams();

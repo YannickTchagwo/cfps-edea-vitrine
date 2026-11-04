@@ -1,5 +1,5 @@
 ---
-import type { Formation } from '../data/demo-formations';
+import type { Formation } from '../data/formation-types';
 import { url } from '../data/site';
 import TradeVisual from './TradeVisual.astro';
 interface Props {
@@ -18,7 +18,7 @@ const { formation: f } = Astro.props;
   <div class="card-body">
     <div class="card-meta">
       <span>{f.domain}</span>
-      <span class="demo-tag">Démonstration</span>
+      <span class="demo-tag source-tag">Métier répertorié</span>
     </div>
     <h3>
       <a href={url(`formations/${f.slug}/`)}>{f.title}</a>

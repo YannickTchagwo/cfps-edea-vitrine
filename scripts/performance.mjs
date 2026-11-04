@@ -14,7 +14,7 @@ try {
   for (const [name, path] of [
     ['accueil', ''],
     ['catalogue', 'formations/'],
-    ['fiche', 'formations/electricite-batiment/'],
+    ['fiche', 'formations/mecatronicien-automobile/'],
   ]) {
     const runs = [];
     for (let i = 1; i <= 3; i++) {

@@ -14,7 +14,7 @@ Le workflow `.github/workflows/pages.yml` reste disponible pour une future autom
 
 ## Conditions éditoriales
 
-Faire valider les contenus et l’identité, les droits des photos, les coordonnées, la liste officielle des formations et les mentions. La maquette n’utilise aucune photo de campus. Les exemples sont exclus par `PUBLIC_CONTENT_MODE=public`, mais le statut validé doit être pris en charge par les composants avant de publier des offres officielles (voir README). Ne retirer `noindex` et le bandeau qu’après accord explicite et choix de l’URL officielle. `noindex` n’est pas une protection d’accès.
+Faire valider les contenus et l’identité, les droits des photos, les coordonnées, la liste officielle des formations et les mentions. La maquette n’utilise aucune photo de campus. Les onze métiers portent le statut « répertorié dans le document ». Les programmes et les conditions de formation restent à faire valider ; aucun exemple fictif n’est conservé dans le catalogue. Ne retirer `noindex` et le bandeau qu’après accord explicite et choix de l’URL officielle. `noindex` n’est pas une protection d’accès.
 
 ## GitHub Pages sous un projet
 

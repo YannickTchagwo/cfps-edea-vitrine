@@ -1,5 +1,7 @@
 # Déploiement de la démonstration — 4 novembre 2026
 
+Ce rapport conserve les preuves de la publication initiale à six exemples. L’adaptation aux onze métiers issus du document transmis et sa recette sont détaillées dans [integration-metiers.md](integration-metiers.md).
+
 URL vérifiée : **https://yannicktchagwo.github.io/cfps-edea-vitrine/**.
 
 Dépôt : [YannickTchagwo/cfps-edea-vitrine](https://github.com/YannickTchagwo/cfps-edea-vitrine). L’utilisateur a demandé et autorisé une démonstration publique sur GitHub Pages. Le bandeau « Prototype – informations à confirmer », les libellés de démonstration et `noindex, nofollow` sont conservés. Les informations officielles restent à valider avant une diffusion institutionnelle.

@@ -1,10 +1,8 @@
-import { demoFormations, type Formation } from './demo-formations';
-export const validatedFormations: Formation[] = [];
-export const formations =
-  import.meta.env.PUBLIC_CONTENT_MODE === 'public'
-    ? validatedFormations
-    : demoFormations;
-export const domains = ['Industrie', 'Bâtiment', 'Logistique'];
+import { poles, sourceFormations } from './source-formations';
+export { formationSource, poles } from './source-formations';
+export const formations = sourceFormations;
+export const domains: string[] = poles.map((pole) => pole.name);
+export const featuredFormations = [formations[0], formations[4], formations[7]];
 const slugs = new Set<string>();
 const ids = new Set<string>();
 for (const f of formations) {
@@ -16,11 +14,9 @@ for (const f of formations) {
     !f.title ||
     !domains.includes(f.domain) ||
     !f.summary ||
-    !f.objectives.length ||
-    !f.careers.length ||
     !f.source ||
-    !['demonstration', 'validated'].includes(f.status) ||
-    (f.status === 'validated' && !f.validatedAt)
+    f.sourcePage !== 1 ||
+    f.status !== 'documented'
   )
     throw new Error(`Formation invalide : ${f.slug}`);
   slugs.add(f.slug);

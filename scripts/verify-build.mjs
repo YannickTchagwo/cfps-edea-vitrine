@@ -35,7 +35,7 @@ const weights = [];
 for (const page of [
   'index.html',
   'formations/index.html',
-  'formations/electricite-batiment/index.html',
+  'formations/mecatronicien-automobile/index.html',
 ]) {
   const html = await readFile(join(root, page), 'utf8');
   const inline = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)]

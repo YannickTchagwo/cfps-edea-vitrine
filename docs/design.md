@@ -1,5 +1,7 @@
 # Conception du prototype
 
+Mise à jour du catalogue : les pôles sont Maintenance industrielle, Transport et Logistique, issus de la liste transmise. Onze fiches sourcées remplacent les six exemples. Voir [integration-metiers.md](integration-metiers.md). Les captures ci-dessous sont actualisées par les tests.
+
 ## Source et limite du relevé
 
 Brief intégral lu le 4 novembre 2026. Dépôt initial : squelette Astro 7.4.5, TypeScript strict, aucune donnée métier ni interface CFPS existante. Pile conservée, CSS natif, aucune bibliothèque d’interface.
@@ -15,7 +17,7 @@ Accueil | Centre | Formations | Admissions | Entreprises | Actualités | Contact
 Titre et introduction                | Illustration technique générique
 Découvrir le centre                  | Signature illustrative
               Recherche métier | Domaine | Trouver une formation
-Domaines : Industrie                 Bâtiment                  Logistique
+Pôles : Maintenance industrielle     Transport                 Logistique
 Formations : carte                   carte                    carte
 Apprenants et parents                | Entreprises
 Présentation du centre               | Informations à confirmer
@@ -35,7 +37,7 @@ Illustration technique générique
 Recherche métier
 Sélecteur de domaine
 Trouver une formation
-Domaines en pile
+Pôles en pile
 Cartes de formation en pile
 Apprenants, entreprises, centre, actualités, contact
 Pied de page

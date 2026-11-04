@@ -1,21 +1,21 @@
 {
   "base": "/cfps-edea-vitrine/",
-  "htmlPages": 15,
-  "links": 388,
+  "htmlPages": 20,
+  "links": 523,
   "weights": [
     {
       "page": "index.html",
-      "htmlBytes": 15437,
+      "htmlBytes": 15761,
       "inlineJsGzipBytes": 315
     },
     {
       "page": "formations/index.html",
-      "htmlBytes": 17424,
-      "inlineJsGzipBytes": 873
+      "htmlBytes": 26944,
+      "inlineJsGzipBytes": 877
     },
     {
-      "page": "formations/electricite-batiment/index.html",
-      "htmlBytes": 6796,
+      "page": "formations/mecatronicien-automobile/index.html",
+      "htmlBytes": 7693,
       "inlineJsGzipBytes": 315
     }
   ]

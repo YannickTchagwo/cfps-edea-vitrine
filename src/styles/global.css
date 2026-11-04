@@ -353,7 +353,7 @@ svg {
   aspect-ratio: 3/1.65;
   overflow: hidden;
 }
-.trade-visual.electric {
+.trade-visual.transport {
   --visual-bg: #f0e6d5;
   color: #755232;
 }
@@ -1243,4 +1243,21 @@ svg {
   * {
     transition: none !important;
   }
+}
+
+/* Intitulés et pôles issus de la liste transmise. */
+.source-tag {
+  background: #edf3ef;
+  color: #204d3f;
+  border-color: #a8bdb4;
+}
+.card-meta {
+  flex-wrap: wrap;
+}
+.page-heading h1 {
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+.source-reference {
+  font-weight: 700;
 }

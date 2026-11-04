@@ -1,8 +1,10 @@
 # CFPS d’Édéa — prototype vitrine
 
-Site français statique avec Astro 7.4.5 et TypeScript strict. Accueil, catalogue filtrable, six fiches **de démonstration**, centre, admissions, entreprises, actualités en état vide, contact, mentions et 404. Aucune collecte, inscription, authentification ou paiement.
+Site français statique avec Astro 7.4.5 et TypeScript strict. Le catalogue reprend **les 11 métiers d’Édéa** du document transmis « Liste des métiers par Centres », page 1, dans trois pôles : maintenance industrielle, transport et logistique. Les six exemples initiaux ont été retirés. Les programmes, durées et conditions de formation restent à confirmer. Aucune collecte, inscription, authentification ou paiement.
 
 **Prototype publié : [ouvrir la démonstration](https://yannicktchagwo.github.io/cfps-edea-vitrine/)**. Publication et vérifications HTTPS consignées dans [docs/deploiement.md](docs/deploiement.md).
+
+Adaptation du catalogue à la liste transmise : [source, transcription des onze métiers et tests](docs/integration-metiers.md).
 
 ## Ouvrir en local
 
@@ -59,9 +61,9 @@ Il n’existe pas de commande lint autonome : la vérification syntaxique et Typ
 ## Ajouter des contenus
 
 - Configuration centrale : `src/data/site.ts` pour l’identité et les contacts, `src/styles/tokens.css` pour la palette.
-- Exemples : `src/data/demo-formations.ts`. Ils sont explicitement fictifs. Durée, prérequis, modalités et date de validation inconnus restent `null`.
-- Offres officielles : tableau séparé `validatedFormations` dans `src/data/formations.ts`. Avant de le remplir, faire évoluer les libellés des composants pour afficher le statut validé et ajouter uniquement des contenus sourcés et approuvés. Ne pas convertir automatiquement les exemples en offres officielles.
-- Le build vérifie identifiants et slugs uniques, format de slug, domaine, titre, résumé, objectifs, métiers, source et statut. Une offre marquée validée exige une date de validation.
+- Métiers et provenance : `src/data/source-formations.ts`. Les intitulés et pôles viennent du PDF transmis ; le résumé est une phrase éditoriale de rattachement au pôle. Les trois métiers d’accueil représentent chacun un pôle.
+- Modèle : `src/data/formation-types.ts`. Le statut `documented` signifie « répertorié dans le document », pas « formation ouverte » ni « validation institutionnelle ». Objectifs, durée, prérequis, débouchés, modalités et date de validation restent `null` faute d’informations transmises.
+- Le build vérifie identifiants et slugs uniques, format du slug, pôle, titre, résumé, source, page et statut. Les tests vérifient les 11 métiers, la répartition 4/3/4 et l’absence de métiers d’autres centres.
 - Pages institutionnelles : `src/data/pages.ts`. Les informations non confirmées restent identifiées.
 - Actualités : état vide volontaire. Quand une actualité réelle sera fournie, ajouter les données validées et un modèle de fiche `src/pages/actualites/[slug].astro`. Aucun article fictif n’est généré à ce stade.
 
@@ -82,13 +84,12 @@ npm.cmd run build
 npm.cmd run test:browser
 ```
 
-Les liens, scripts, styles, favicon, fiches et 404 utilisent la base Astro. Définir `SITE_URL` seulement lorsque l’origine officielle aura été choisie. Pour masquer tous les exemples : `$env:PUBLIC_CONTENT_MODE='public'` ; le catalogue reste vide en l’absence d’offres validées. Ce réglage ne retire pas le statut de prototype et n’autorise pas une publication.
+Les liens, scripts, styles, favicon, fiches et 404 utilisent la base Astro. Définir `SITE_URL` pour l’origine de publication. Les 11 métiers documentés sont présents dans tous les builds ; l’ancien réglage `PUBLIC_CONTENT_MODE` n’est plus utilisé. Le bandeau de prototype et `noindex` restent actifs.
 
 Revenir au prototype local après les essais :
 
 ```powershell
 $env:SITE_BASE = '/'
-$env:PUBLIC_CONTENT_MODE = 'demo'
 npm.cmd run build
 ```
 
