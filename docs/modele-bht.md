@@ -45,3 +45,9 @@ Les tests de données vérifient cette absence d’invention. La source document
 - Captures inspectées : [catalogue bureau](captures/catalogue-1440-chromium.png), [catalogue mobile](captures/catalogue-390-chromium.png), [fiche bureau](captures/fiche-1440-bht.png), [fiche mobile](captures/fiche-390-bht.png).
 
 Les moteurs automatisés ne constituent pas un essai sur les téléphones physiques signalés précédemment ; la cause de leur page blanche n’est pas établie. La recette de la version précédente reste disponible dans [integration-metiers.md](integration-metiers.md).
+
+## Publication vérifiée
+
+Le code source `d1a70e07a77af15014bad8e48affac54920334f5` a été publié via le commit `68a75cc5f6f1f71a7964a97e4f21479468417350` de la branche `gh-pages`. GitHub Pages confirme le statut `built` le 4 novembre 2026 à 21:21:27 UTC.
+
+Le contrôle HTTPS public a vérifié 21 URL, les onze métiers, le nouveau tableau, les repères et les six rubriques de chaque fiche, les liens avec le préfixe du projet, les ressources, le statut prototype et la 404 personnalisée. Les six anciennes URL de démonstration répondent toujours 404. Voir [le rapport de production](verification-production-bht.json).
