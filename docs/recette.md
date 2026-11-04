@@ -1,6 +1,6 @@
 # Rapport de recette — 4 novembre 2026
 
-Prototype local Astro 7.4.5, Windows, Node 26.7.0, npm 11.19.0. La version LTS 24.11.0 est épinglée pour la reprise, mais n’a pas été exécutée sur ce poste. Aucune publication, modification DNS ou intégration serveur.
+Recette initiale locale : Astro 7.4.5, Windows, Node 26.7.0, npm 11.19.0. La version LTS 24.11.0 est épinglée pour la reprise, mais n’a pas été exécutée sur ce poste. La publication réalisée ensuite avec autorisation est décrite dans le [rapport de déploiement](deploiement.md). Aucun DNS de domaine personnalisé ni service serveur n’a été ajouté.
 
 ## Vérifications exécutées
 
@@ -50,4 +50,4 @@ Les rapports Lighthouse complets sont conservés localement dans `docs/performan
 - Les en-têtes HTTPS/CSP et les DNS ne sont pas testés : aucun hébergement définitif n’a été configuré.
 - La CI et le fonctionnement sur la version Node LTS épinglée restent à exécuter sur l’environnement cible.
 
-La publication reste une étape séparée, décrite dans [publication.md](publication.md).
+La publication a fait l’objet d’une étape séparée, décrite dans [publication.md](publication.md) et vérifiée dans [deploiement.md](deploiement.md).

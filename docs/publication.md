@@ -1,12 +1,12 @@
-# Publication — étape future séparée
+# Publication et exploitation
 
-Aucune mise en ligne n’a encore été vérifiée. L’utilisateur a autorisé la publication de la démonstration sur GitHub Pages le 4 novembre 2026. Le dépôt public est `YannickTchagwo/cfps-edea-vitrine`.
+La démonstration a été publiée et vérifiée le 4 novembre 2026, avec l’autorisation de l’utilisateur. Le dépôt public est `YannickTchagwo/cfps-edea-vitrine`. [Ouvrir le prototype](https://yannicktchagwo.github.io/cfps-edea-vitrine/) · [Rapport de déploiement](deploiement.md).
 
 ## Configuration retenue pour la démonstration
 
 Le site est configuré avec la source **Deploy from a branch**, branche `gh-pages`, dossier `/`. Cette branche contient uniquement `dist/` et `.nojekyll` ; `main` contient le code et la documentation. HTTPS est activé. Les 15 pages conservent le bandeau, les exemples explicitement signalés et `noindex`.
 
-Les workflows ont été transmis mais GitHub Actions ne les a pas enregistrés dans sa liste pendant cette opération (déclenchement manuel : HTTP 404 malgré les fichiers présents et Actions activé). La publication initiale utilise donc le build statique vérifié localement ; aucun succès de CI GitHub n’est annoncé.
+Les workflows ont été enregistrés après un délai d’indexation de GitHub (les premiers déclenchements renvoyaient HTTP 404). La publication initiale conserve le build statique vérifié localement, servi depuis `gh-pages` par le traitement Pages généré par GitHub. Aucun succès de la suite de tests sur les runners GitHub n’est annoncé.
 
 Pour une mise à jour, reconstruire avec `SITE_BASE=/cfps-edea-vitrine/`, exécuter les contrôles du README puis mettre à jour `gh-pages` avec le contenu de `dist/` en conservant `.nojekyll`. Ne pas fusionner `main` dans `gh-pages`. Conserver l’artefact précédent avant de le remplacer.
 

@@ -1,0 +1,87 @@
+{
+  "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/",
+  "verified_urls": 16,
+  "results": [
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/",
+      "status": 200,
+      "bytes": 15437
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/_astro/Layout.CUJ6Pe1V.css",
+      "status": 200,
+      "bytes": 16586
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/actualites/",
+      "status": 200,
+      "bytes": 5162
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/admissions/",
+      "status": 200,
+      "bytes": 5804
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/contact/",
+      "status": 200,
+      "bytes": 5403
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/entreprises/",
+      "status": 200,
+      "bytes": 5524
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/favicon.svg",
+      "status": 200,
+      "bytes": 197
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/formations/",
+      "status": 200,
+      "bytes": 17424
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/formations/electricite-batiment/",
+      "status": 200,
+      "bytes": 6796
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/formations/gestion-flux-logistiques/",
+      "status": 200,
+      "bytes": 6882
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/formations/logistique-magasinage/",
+      "status": 200,
+      "bytes": 6882
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/formations/maintenance-industrielle/",
+      "status": 200,
+      "bytes": 7186
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/formations/plomberie-sanitaire/",
+      "status": 200,
+      "bytes": 6772
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/formations/soudage-assemblage/",
+      "status": 200,
+      "bytes": 7095
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/le-centre/",
+      "status": 200,
+      "bytes": 5559
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/mentions-et-confidentialite/",
+      "status": 200,
+      "bytes": 6295
+    }
+  ],
+  "custom_404": true
+}

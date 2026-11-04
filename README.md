@@ -1,6 +1,8 @@
 # CFPS d’Édéa — prototype vitrine
 
-Site français statique avec Astro 7.4.5 et TypeScript strict. Accueil, catalogue filtrable, six fiches **de démonstration**, centre, admissions, entreprises, actualités en état vide, contact, mentions et 404. Aucune collecte, inscription, authentification ou paiement. Aucune publication effectuée.
+Site français statique avec Astro 7.4.5 et TypeScript strict. Accueil, catalogue filtrable, six fiches **de démonstration**, centre, admissions, entreprises, actualités en état vide, contact, mentions et 404. Aucune collecte, inscription, authentification ou paiement.
+
+**Prototype publié : [ouvrir la démonstration](https://yannicktchagwo.github.io/cfps-edea-vitrine/)**. Publication et vérifications HTTPS consignées dans [docs/deploiement.md](docs/deploiement.md).
 
 ## Ouvrir en local
 
@@ -94,6 +96,6 @@ npm.cmd run build
 
 GitHub Pages est configuré sur la branche `gh-pages`, à la racine. La branche `main` contient les sources ; `gh-pages` contient uniquement l’artefact statique vérifié et `.nojekyll`.
 
-Le dépôt public est [YannickTchagwo/cfps-edea-vitrine](https://github.com/YannickTchagwo/cfps-edea-vitrine). Les workflows de vérification et de déploiement manuel sont fournis pour une future automatisation ; leur enregistrement par GitHub Actions n’a pas abouti pendant la publication initiale. Avant d’utiliser `pages.yml`, sélectionner la source **GitHub Actions** dans les paramètres Pages. La publication initiale utilise donc l’artefact construit et testé localement. La configuration et le retour arrière sont décrits dans [docs/publication.md](docs/publication.md). Aucun DNS de domaine personnalisé n’est modifié.
+Le dépôt public est [YannickTchagwo/cfps-edea-vitrine](https://github.com/YannickTchagwo/cfps-edea-vitrine). Les workflows de vérification et de déploiement manuel sont disponibles dans GitHub Actions. Avant d’utiliser `pages.yml`, sélectionner la source **GitHub Actions** dans les paramètres Pages. La publication initiale conserve la branche statique `gh-pages` et l’artefact construit et testé localement. La configuration et le retour arrière sont décrits dans [docs/publication.md](docs/publication.md). Aucun DNS de domaine personnalisé n’est modifié.
 
 À obtenir avant diffusion : cahier des charges métier complet, formations officielles, logo et charte, photos autorisées, contacts et campus, calendrier, conditions d’admission, responsable éditorial, identité juridique et validation des mentions. Voir le [registre des contenus et licences](docs/contenus-et-licences.md) et la [conception avec captures](docs/design.md).
