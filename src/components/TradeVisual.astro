@@ -1,0 +1,101 @@
+---
+interface Props {
+  kind?: string;
+  large?: boolean;
+}
+const { kind = 'industry', large = false } = Astro.props;
+---
+
+<div class:list={['trade-visual', kind, { large }]} aria-hidden="true">
+  <svg
+    viewBox="0 0 600 400"
+    xmlns="http://www.w3.org/2000/svg"
+    focusable="false"
+  >
+    <path
+      d="M0 80H600M0 160H600M0 240H600M0 320H600M100 0V400M200 0V400M300 0V400M400 0V400M500 0V400"
+      fill="none"
+      stroke="currentColor"
+      opacity=".09"
+    />
+    {kind === 'industry' ? (
+      <g>
+        <path
+          d="M45 310H565M85 310V190L175 140V190L265 140V310M290 310V95H450V310"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="9"
+        />
+        <path
+          d="M320 130H420M320 165H420M320 200H370"
+          stroke="currentColor"
+          stroke-width="8"
+        />
+        <circle
+          cx="420"
+          cy="262"
+          r="65"
+          fill="var(--visual-bg)"
+          stroke="currentColor"
+          stroke-width="10"
+        />
+        <circle
+          cx="420"
+          cy="262"
+          r="27"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="9"
+        />
+        <path
+          d="M420 182V204M420 320V342M340 262H362M478 262H500M362 204L379 221M461 303L478 320M362 320L379 303M461 221L478 204"
+          stroke="currentColor"
+          stroke-width="14"
+        />
+        <path
+          d="M115 230H145M185 230H215"
+          stroke="currentColor"
+          stroke-width="13"
+        />
+      </g>
+    ) : kind === 'electric' ? (
+      <g>
+        <path
+          d="M90 310V160L210 80L330 160V310M60 310H545M130 310V210H195V310M235 210H290V260H235Z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="9"
+        />
+        <path
+          d="M428 75L355 218H418L382 330L505 170H438L480 75Z"
+          fill="var(--visual-accent)"
+          stroke="currentColor"
+          stroke-width="7"
+          stroke-linejoin="round"
+        />
+      </g>
+    ) : (
+      <g>
+        <path
+          d="M65 315H540M95 310V140H295V310M95 220H295M195 140V310M340 310V225H520V310M395 225V265H460V225M120 140V80H265V140M170 80V110H215V80"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="9"
+        />
+        <path
+          d="M350 120H510M475 85L510 120L475 155"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="9"
+          stroke-linecap="round"
+        />
+        <path
+          d="M125 245H165M225 165H265"
+          stroke="var(--visual-accent)"
+          stroke-width="16"
+        />
+      </g>
+    )}
+  </svg>
+  <span class="visual-caption">Illustration de démonstration</span>
+</div>

@@ -1,0 +1,22 @@
+{
+  "base": "/cfps-edea-vitrine/",
+  "htmlPages": 15,
+  "links": 388,
+  "weights": [
+    {
+      "page": "index.html",
+      "htmlBytes": 15437,
+      "inlineJsGzipBytes": 315
+    },
+    {
+      "page": "formations/index.html",
+      "htmlBytes": 17424,
+      "inlineJsGzipBytes": 873
+    },
+    {
+      "page": "formations/electricite-batiment/index.html",
+      "htmlBytes": 6796,
+      "inlineJsGzipBytes": 315
+    }
+  ]
+}

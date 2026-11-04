@@ -1,23 +1,182 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import '../styles/global.css';
+import { site, url } from '../data/site';
+interface Props {
+  title: string;
+  description?: string;
+}
+const {
+  title,
+  description = 'Découvrez le CFPS d’Édéa et explorez un parcours de formation professionnelle. Prototype de démonstration.',
+} = Astro.props;
+const navigation = [
+  ['le-centre/', 'Le centre'],
+  ['formations/', 'Nos formations'],
+  ['admissions/', 'Admissions'],
+  ['entreprises/', 'Entreprises'],
+  ['actualites/', 'Actualités'],
+];
+---
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+<!doctype html>
+<html lang="fr">
+  <head>
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta property="og:title" content={`${title} · ${site.name}`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href={url('favicon.svg')} />
+    <title>{title} · {site.name}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu" tabindex="0">
+      Aller au contenu
+    </a>
+    <div class="prototype">
+      <div class="container">
+        <span class="status-dot" aria-hidden="true"></span>
+        <strong>Prototype</strong> – informations à confirmer{' '}
+        <a href={url('mentions-et-confidentialite/')}>
+          À propos de cette démonstration ↗
+        </a>
+      </div>
+    </div>
+    <header class="site-header">
+      <div class="container header-main">
+        <a class="brand" href={url('')} aria-label="CFPS d’Édéa, accueil">
+          <span class="brand-mark">
+            CFPS<span>ÉDÉA</span>
+          </span>
+          <span class="brand-full">
+            Centre de Formation
+            <br />
+            Professionnelle Sectoriel
+          </span>
+        </a>
+        <div class="header-location">◎ Édéa, Cameroun</div>
+        <a class="button small contact-top" href={url('contact/')}>
+          Nous contacter ↗
+        </a>
+        <a class="mobile-catalog" href={url('formations/')}>
+          Formations
+        </a>
+        <button
+          id="menu-toggle"
+          class="menu-toggle"
+          aria-expanded="false"
+          aria-controls="main-nav"
+          hidden
+        >
+          Menu <span aria-hidden="true">☰</span>
+        </button>
+      </div>
+      <nav
+        id="main-nav"
+        class="container main-nav"
+        aria-label="Navigation principale"
+      >
+        <a
+          href={url('')}
+          aria-current={Astro.url.pathname === url('') ? 'page' : undefined}
+        >
+          Accueil
+        </a>
+        {navigation.map(([path, label]) => (
+          <a
+            href={url(path)}
+            aria-current={
+              Astro.url.pathname.startsWith(url(path)) ? 'page' : undefined
+            }
+          >
+            {label}
+          </a>
+        ))}
+        <a
+          class="nav-contact"
+          href={url('contact/')}
+          aria-current={
+            Astro.url.pathname === url('contact/') ? 'page' : undefined
+          }
+        >
+          Contact ↗
+        </a>
+      </nav>
+    </header>
+    <main id="contenu" tabindex="-1">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="footer-brand" href={url('')}>
+            CFPS <span>d’Édéa</span>
+          </a>
+          <p>
+            Un métier à apprendre.
+            <br />
+            Un avenir à construire.
+          </p>
+          <p class="muted-light">
+            Centre de Formation Professionnelle
+            <br />
+            Sectoriel d’Édéa · Cameroun
+          </p>
+        </div>
+        <div>
+          <h2>Votre parcours</h2>
+          <a href={url('formations/')}>Explorer les formations</a>
+          <a href={url('admissions/')}>Préparer mon projet</a>
+          <a href={url('contact/')}>Contacter le centre</a>
+        </div>
+        <div>
+          <h2>Le CFPS d’Édéa</h2>
+          <a href={url('le-centre/')}>Découvrir le centre</a>
+          <a href={url('entreprises/')}>Espace entreprises</a>
+          <a href={url('actualites/')}>Actualités</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>Prototype de travail · Contenus à valider par le CFPS</span>
+        <a href={url('mentions-et-confidentialite/')}>
+          Mentions et confidentialité
+        </a>
+      </div>
+    </footer>
+    <script>
+      const toggle = document.querySelector<HTMLButtonElement>('#menu-toggle');
+      const nav = document.querySelector<HTMLElement>('#main-nav');
+      if (toggle && nav) {
+        toggle.hidden = false;
+        nav.classList.add('enhanced');
+        const close = () => {
+          toggle.setAttribute('aria-expanded', 'false');
+          nav.classList.remove('is-open');
+        };
+        toggle.addEventListener('click', () => {
+          const open = toggle.getAttribute('aria-expanded') !== 'true';
+          toggle.setAttribute('aria-expanded', String(open));
+          nav.classList.toggle('is-open', open);
+        });
+        document.addEventListener('keydown', (event) => {
+          if (
+            event.key === 'Escape' &&
+            toggle.getAttribute('aria-expanded') === 'true'
+          ) {
+            close();
+            toggle.focus();
+          }
+        });
+        nav.addEventListener('click', (event) => {
+          if ((event.target as HTMLElement).closest('a')) close();
+        });
+      }
+    </script>
+  </body>
+</html>

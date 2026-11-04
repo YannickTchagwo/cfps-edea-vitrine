@@ -1,0 +1,36 @@
+# Vérifications séparées de la publication.
+name: Vérifier le prototype (sans déploiement)
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        base: ['/', '/cfps-edea-vitrine/']
+    env:
+      SITE_BASE: ${{ matrix.base }}
+      ASTRO_TELEMETRY_DISABLED: '1'
+      ALL_BROWSERS: '1'
+      PLAYWRIGHT_BROWSERS_PATH: .cache/playwright
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm run format:check
+      - run: npm test
+      - run: npm run build
+      - run: npm run test:static
+      - run: npx playwright install --with-deps firefox webkit
+      - run: npm run test:browser
+      - uses: actions/upload-artifact@v4
+        with:
+          name: prototype-${{ strategy.job-index }}
+          path: dist/

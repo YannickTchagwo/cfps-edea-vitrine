@@ -1,0 +1,136 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FormationCard from '../../components/FormationCard.astro';
+import SearchForm from '../../components/SearchForm.astro';
+import { formations } from '../../data/formations';
+import { url } from '../../data/site';
+---
+
+<Layout
+  title="Catalogue des formations"
+  description="Explorez le catalogue de démonstration : recherche par métier et filtre par domaine. Les offres du CFPS restent à confirmer."
+>
+  <section class="page-heading">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Fil d’Ariane">
+        <a href={url('')}>Accueil</a>
+        <span aria-hidden="true">/</span>
+        <span>Formations</span>
+      </nav>
+      <p class="eyebrow">CHOISIR SON PARCOURS</p>
+      <h1>
+        Un métier commence
+        <br />
+        par une formation.
+      </h1>
+      <p>Explorez les domaines et trouvez une piste pour votre projet.</p>
+    </div>
+  </section>
+  <div class="container catalogue-content">
+    <div class="notice">
+      <strong>Catalogue de démonstration.</strong> Ces exemples ne constituent
+      pas une offre officielle du CFPS d’Édéa. Durées, prérequis et conditions
+      restent à confirmer.
+    </div>
+    <SearchForm catalogue />
+    <noscript>
+      <p class="notice">
+        La recherche interactive nécessite JavaScript. Toutes les fiches restent
+        accessibles ci-dessous.
+      </p>
+    </noscript>
+    <div class="results-bar">
+      <p id="results-count" role="status" aria-live="polite" aria-atomic="true">
+        {formations.length} formations de démonstration
+      </p>
+      <button id="reset-search" class="reset-button" type="button" hidden>
+        Réinitialiser les filtres <span aria-hidden="true">↺</span>
+      </button>
+    </div>
+    <div class="formation-grid">
+      {formations.map((formation) => (
+        <FormationCard formation={formation} />
+      ))}
+    </div>
+    <div id="empty-results" class="empty-state" hidden>
+      <h2>Aucune formation ne correspond.</h2>
+      <p>Essayez un terme plus court ou sélectionnez « Tous les domaines ».</p>
+      <button class="button" id="empty-reset" type="button">
+        Voir toutes les formations
+      </button>
+    </div>
+    {!formations.length && (
+      <div class="empty-state">
+        <h2>Le catalogue officiel se prépare.</h2>
+        <p>Aucune formation validée n’est publiée pour le moment.</p>
+      </div>
+    )}
+  </div>
+  <section class="contact-strip container">
+    <div>
+      <h2>Vous hésitez entre plusieurs métiers ?</h2>
+      <p>Préparez vos questions avant de contacter le centre.</p>
+    </div>
+    <a class="button" href={url('admissions/')}>
+      Préparer mon projet <span aria-hidden="true">↗</span>
+    </a>
+  </section>
+  <script>
+    import { matches } from '../../lib/search.mjs';
+    const form = document.querySelector<HTMLFormElement>('#catalogue-search')!;
+    const query = form.querySelector<HTMLInputElement>('[name="q"]')!;
+    const domain = form.querySelector<HTMLSelectElement>('[name="domaine"]')!;
+    const cards = [
+      ...document.querySelectorAll<HTMLElement>('[data-formation]'),
+    ];
+    const count = document.querySelector<HTMLElement>('#results-count')!;
+    const empty = document.querySelector<HTMLElement>('#empty-results')!;
+    const reset = document.querySelector<HTMLButtonElement>('#reset-search')!;
+    reset.hidden = false;
+    const apply = (updateUrl = true) => {
+      let visible = 0;
+      for (const card of cards) {
+        card.hidden = !matches(
+          card.dataset.search || '',
+          card.dataset.domain || '',
+          query.value,
+          domain.value,
+        );
+        if (!card.hidden) visible++;
+      }
+      count.textContent = `${visible} formation${visible !== 1 ? 's' : ''} de démonstration`;
+      empty.hidden = visible !== 0 || cards.length === 0;
+      if (updateUrl) {
+        const params = new URLSearchParams();
+        if (query.value.trim()) params.set('q', query.value.trim());
+        if (domain.value) params.set('domaine', domain.value);
+        history.replaceState(
+          null,
+          '',
+          `${location.pathname}${params.size ? '?' + params : ''}`,
+        );
+      }
+    };
+    const readUrl = () => {
+      const params = new URLSearchParams(location.search);
+      query.value = params.get('q') || '';
+      domain.value = params.get('domaine') || '';
+      apply(false);
+    };
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      apply();
+    });
+    query.addEventListener('input', () => apply());
+    domain.addEventListener('change', () => apply());
+    const clear = () => {
+      form.reset();
+      apply();
+      query.focus();
+    };
+    reset.addEventListener('click', clear);
+    document.querySelector('#empty-reset')!.addEventListener('click', clear);
+    window.addEventListener('popstate', readUrl);
+    readUrl();
+  </script>
+</Layout>

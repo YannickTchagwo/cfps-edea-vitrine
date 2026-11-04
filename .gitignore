@@ -22,3 +22,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# local checks
+test-results/
+playwright-report/
+.astro-dev/
+.cache/
