@@ -1,0 +1,116 @@
+{
+  "date": "2026-11-04",
+  "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/",
+  "verified_urls": 21,
+  "metiers": 11,
+  "poles": 3,
+  "custom_404": true,
+  "retired_demo_urls_404": 6,
+  "results": [
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/",
+      "status": 200,
+      "bytes": 15761
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/_astro/Layout.DVR9WbK7.css",
+      "status": 200,
+      "bytes": 16766
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/actualites/",
+      "status": 200,
+      "bytes": 5171
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/admissions/",
+      "status": 200,
+      "bytes": 5914
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/contact/",
+      "status": 200,
+      "bytes": 5424
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/entreprises/",
+      "status": 200,
+      "bytes": 5533
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/favicon.svg",
+      "status": 200,
+      "bytes": 197
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/formations/",
+      "status": 200,
+      "bytes": 26944
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/formations/chef-quai-magasinier/",
+      "status": 200,
+      "bytes": 7327
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/formations/conducteur-professionnel-poids-lourds/",
+      "status": 200,
+      "bytes": 7467
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/formations/controleur-technique-vehicules/",
+      "status": 200,
+      "bytes": 7439
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/formations/electromecanicien-maintenance-industrielle/",
+      "status": 200,
+      "bytes": 7847
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/formations/gestionnaire-entreprise-transport-routier-compte-autrui/",
+      "status": 200,
+      "bytes": 7684
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/formations/mecanicien-reparateur-vehicules-engins-industriels/",
+      "status": 200,
+      "bytes": 7938
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/formations/mecatronicien-automobile/",
+      "status": 200,
+      "bytes": 7693
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/formations/responsable-transport/",
+      "status": 200,
+      "bytes": 7292
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/formations/technicien-froid-industriel/",
+      "status": 200,
+      "bytes": 7728
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/formations/technicien-logistique/",
+      "status": 200,
+      "bytes": 7292
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/formations/technicien-transit-douane/",
+      "status": 200,
+      "bytes": 7362
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/le-centre/",
+      "status": 200,
+      "bytes": 5890
+    },
+    {
+      "url": "https://yannicktchagwo.github.io/cfps-edea-vitrine/mentions-et-confidentialite/",
+      "status": 200,
+      "bytes": 6459
+    }
+  ]
+}

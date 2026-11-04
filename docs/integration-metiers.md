@@ -50,3 +50,11 @@ Contrôles exécutés :
 - Les quatre captures d’accueil et catalogue aux formats mobile et bureau ont été actualisées et inspectées. Les illustrations de transport et les titres longs restent lisibles sans débordement.
 
 Ces contrôles automatisés ne remplacent pas une lecture manuelle avec un lecteur d’écran ni un audit complet. Les résultats Lighthouse de la première maquette conservés dans `recette.md` décrivent la version précédente ; ils ne sont pas présentés comme des mesures de performance de cette version.
+
+## Publication et vérification en ligne
+
+La mise à jour a été commitéе dans le dépôt local principal puis poussée sur `main` : `061cc6f`. Le build statique vérifié est publié sur `gh-pages`, commit `3b09ade7517cc4453846812e971a25aa573515a9`. L’API Pages a confirmé l’état `built`, sans erreur, le 4 novembre 2026.
+
+URL : **https://yannicktchagwo.github.io/cfps-edea-vitrine/**.
+
+Vérification HTTP après déploiement : **21 URL en HTTP 200**, incluant les onze fiches, le catalogue, l’accueil, les pages secondaires et les ressources. Le catalogue contient bien onze cartes et tous les intitulés attendus. La source, `noindex` et le bandeau sont présents. Une URL inexistante et les six anciennes URL fictives renvoient à la 404 personnalisée. Preuves : [verification-production-metiers.json](verification-production-metiers.json).
